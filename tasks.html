@@ -1,97 +1,26 @@
 <!DOCTYPE html>
-<!-- Copiado de testesite2.html para nome esperado tasks.html -->
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Tarefas</title>
-
-    <style>
-        body { background: #121212; color: #fff; font-family: Arial; padding: 20px; }
-        .task-box { background: #1f1f1f; padding: 15px; margin: 10px 0; border-radius: 6px; }
-        input { padding: 10px; width: 70%; background: #2b2b2b; border: none; color: #fff; margin-right: 5px; }
-        button { padding: 10px; background: #6200ea; border: none; color: white; cursor: pointer; }
-        .small-btn { padding: 5px 8px; margin-left: 5px; }
-    </style>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="loadTasks()">
 
-<h1>Gestão de Tarefas</h1>
+    <h1>Minhas Tarefas</h1>
 
-<input id="novaTarefa" placeholder="Digite uma tarefa...">
-<button onclick="criarTarefa()">Adicionar</button>
+    <form onsubmit="createTask(event)">
+        <input type="text" id="task" placeholder="Título da tarefa" required>
+        <textarea id="taskDescription" placeholder="Descrição da tarefa" required></textarea>
+        <button class="btn-success" type="submit">Adicionar</button>
+    </form>
 
-<h2>Minhas Tarefas</h2>
-<div id="lista"></div>
+    <h2>Lista de Tarefas</h2>
+    <ul id="task-list"></ul>
 
-<script>
-const token = localStorage.getItem("token");
-if (!token) window.location.href = "login.html";
+    <button class="btn-danger" onclick="logout()">Sair</button>
 
-async function carregarTarefas() {
-    const res = await fetch("http://localhost:3000/tasks", {
-        headers: { "Authorization": `Bearer ${token}` }
-    });
-
-    const tarefas = await res.json();
-    const lista = document.getElementById("lista");
-    lista.innerHTML = "";
-
-    tarefas.forEach(t => {
-        lista.innerHTML += `
-            <div class="task-box">
-                <input type="text" id="task-${t.id}" value="${t.description}">
-                <button class="small-btn" onclick="editar(${t.id})">Editar</button>
-                <button class="small-btn" onclick="excluir(${t.id})">Excluir</button>
-            </div>
-        `;
-    });
-}
-
-async function criarTarefa() {
-    const description = document.getElementById("novaTarefa").value;
-    if (!description) return alert("Digite algo!");
-
-    await fetch("http://localhost:3000/tasks", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify({ description })
-    });
-
-    carregarTarefas();
-}
-
-async function editar(id) {
-    const description = document.getElementById(`task-${id}`).value;
-
-    await fetch(`http://localhost:3000/tasks/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify({ description })
-    });
-
-    carregarTarefas();
-}
-
-async function excluir(id) {
-    await fetch(`http://localhost:3000/tasks/${id}`, {
-        method: "DELETE",
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    });
-
-    carregarTarefas();
-}
-
-carregarTarefas();
-</script>
-
+    <script src="scripts.js"></script>
 </body>
 </html>

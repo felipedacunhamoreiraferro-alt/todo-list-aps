@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Índice - Meus Sites</title>
-    <style>body{font-family:Arial;padding:30px;background:#f4f4f4} a{display:block;margin:8px 0;color:#0366d6}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To‑Do List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Meus Sites</h1>
-    <p>Clique para abrir cada site:</p>
-    <a href="tasks.html" target="_blank">App de Tarefas (tasks.html)</a>
-    <a href="register.html" target="_blank">Página de Registro (register.html)</a>
-    <a href="login.html" target="_blank">Página de Login (login.html)</a>
+
+    <h1>Bem-vindo ao To‑Do List</h1>
+
+    <p class="intro-text">
+        Organize suas tarefas de forma simples e rápida.
+    </p>
+
+    <div class="menu-buttons">
+        <button class="btn-primary" onclick="window.location.href='login.html'">Entrar</button>
+        <button class="btn-success" onclick="window.location.href='register.html'">Criar Conta</button>
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
