@@ -1,0 +1,141 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== TEMA ESCURO ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ===== TÍTULOS ===== */
+h1, h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* ===== TEXTOS ===== */
+.intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #bbbbbb;
+}
+
+/* ===== FORMULÁRIOS ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+/* ===== BOTÕES ===== */
+button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background-color: #2962ff;
+}
+
+.btn-primary:hover {
+    background-color: #0039cb;
+}
+
+.btn-success {
+    background-color: #00c853;
+}
+
+.btn-success:hover {
+    background-color: #009624;
+}
+
+.btn-danger {
+    background-color: #d32f2f;
+}
+
+.btn-danger:hover {
+    background-color: #9a0007;
+}
+
+/* ===== LISTA DE TAREFAS ===== */
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li {
+    background-color: #1e1e1e;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task-list li span {
+    flex: 1;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #82b1ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    #task-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+.center-text {
+    text-align: center;
+}
+textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    min-height: 80px;
+}

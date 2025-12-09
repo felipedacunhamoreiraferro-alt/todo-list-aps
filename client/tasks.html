@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadTasks()">
+
+    <h1>Minhas Tarefas</h1>
+
+    <form onsubmit="createTask(event)">
+        <input type="text" id="task" placeholder="Título da tarefa" required>
+        <textarea id="taskDescription" placeholder="Descrição da tarefa" required></textarea>
+        <button class="btn-success" type="submit">Adicionar</button>
+    </form>
+
+    <h2>Lista de Tarefas</h2>
+    <ul id="task-list"></ul>
+
+    <button class="btn-danger" onclick="logout()">Sair</button>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
